@@ -1,2 +1,7 @@
+cn\unicorn\springboot\config\ServiceConfig.class
+cn\unicorn\springboot\controller\MessageController2.class
+cn\unicorn\springboot\service\impl\MessageServiceImpl.class
+cn\unicorn\springboot\service\IMessageService.class
 cn\unicorn\springboot\controller\MessageController.class
+cn\unicorn\springboot\controller\MessageController3.class
 cn\unicorn\springboot\SampleController.class
