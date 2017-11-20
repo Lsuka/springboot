@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SpringBoot模板渲染</title>
+<link rel="icon" type="image/x-icon" th:href="@{/images/neusoft.ico}" />
+<meta http-equiv="Content-Type" content="text/html;UTF-8" />
+<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+</head>
+<body>
+	<p th:text="${member.mid}"></p>
+	<p th:text="${member.name}"></p>
+	<p th:text="${member.age}"></p>
+	<p th:text="${member.salary}"></p>
+	<p th:text="${member.deptno}"></p>
+	<p th:text="${member.birthday}"></p>
+	<p th:text="*{#dates.format(member.birthday,'yyyy-MM-dd')}"></p>
+	<div th:object="${member}">
+		<p th:text="*{mid}"></p>
+		<p th:text="*{name}"></p>
+		<p th:text="*{age}"></p>
+		<p th:text="*{salary}"></p>
+		<p th:text="*{deptno}"></p>
+		<p th:text="*{birthday}"></p>
+		<p th:text="*{#dates.format(birthday,'yyyy-MM-dd')}"></p>
+	</div>
+	<div th:object="${member}">
+		<span th:if="*{age > 20}">
+			<span th:text="*{name}+'king of the 新日暮里'"></span>
+		</span>
+		<span th:unless="*{age > 20}">
+			<span th:text="*{name}+'boy♂next♂door'"></span>
+		</span>
+	</div>
+	<div th:object="${member}">
+		<span th:switch="*{deptno}">
+			<span th:case="30" th:text="*{name}+'boy♂next♂door'"></span>
+			<span th:case="10" th:text="*{name}+'新日暮里'"></span>
+			<span th:case="50" th:text="*{name}+'giligili愛'"></span>
+		</span>
+	</div>
+</body>
+</html>

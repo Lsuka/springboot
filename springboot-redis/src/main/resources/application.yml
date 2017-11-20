@@ -1,0 +1,37 @@
+#spring: 
+#  redis:
+#    host: 192.168.234.131
+#    port: 6379
+#    password: mldnjava 
+#    timeout: 1000
+#    database: 0
+#    pool:
+#      max-active: 10
+#      max-idle: 8
+#      min-idle: 2
+#      max-wait: 100
+myredis:
+  redis-one: 
+    host: 192.168.234.131
+    port: 6379
+    password: mldnjava
+    timeout: 1000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+  redis-two:  # 名字随便写的，没有自动配置的作用，只能够读取
+    host: 192.168.234.131
+    port: 6379
+    password: mldnjava
+    timeout: 1000
+    database: 1
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+server:
+  port: 80   # 定义服务端口

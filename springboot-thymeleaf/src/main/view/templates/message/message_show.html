@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SpringBoot模板渲染</title>
+<link rel="icon" type="image/x-icon" th:href="@{/images/neusoft.ico}" />
+<meta http-equiv="Content-Type" content="text/html;UTF-8" />
+<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+</head>
+<body>
+	<p th:utext="'title:'+${title}"></p>
+	<p th:utext="'msg = '+${msg}"></p>
+	<p th:utext="#{welcome.msg('比利')}"></p>
+	<p th:utext="'5 + 5 = '+(5+5) "></p>
+	<img th:src="@{/images/neusoft.ico}" />
+	<p th:text="${#httpServletRequest.getHeader('Accept-Language')}"></p>
+	<p th:text="${#httpServletRequest.getSession().getId()}"></p>
+	<p th:text="${#httpSession.getId()}"></p>
+	<p
+		th:text="${#httpServletRequest.getServletContext().getRealPath('/')}"></p>
+</body>
+</html>

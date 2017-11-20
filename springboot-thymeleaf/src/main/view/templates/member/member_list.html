@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SpringBoot模板渲染</title>
+<link rel="icon" type="image/x-icon" th:href="@{/images/neusoft.ico}" />
+<meta http-equiv="Content-Type" content="text/html;UTF-8" />
+<script type="text/javascript" th:src="@{/jquery/jquery.min.js}"></script>
+<link type="text/css" rel="stylesheet"
+	th:href="@{/bootstrap/css/bootstrap.css}" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+	<table style="width: 100%" border="15">
+		<tr>
+			<td>No.</td>
+			<td>boy</td>
+			<td>next</td>
+			<td>door</td>
+			<td>even</td>
+			<td>odd</td>
+		</tr>
+		<tr th:each="member:${allMembers}"
+			th:class="${memberStat.even ? 'text-danger' : 'text-success'}">
+			<td th:text="${memberStat.index + 1}" />
+			<td th:text="${member.mid}"></td>
+			<td th:text="${member.name}"></td>
+			<td th:text="${member.salary}"></td>
+			<td th:text="${memberStat.even}" />
+			<td th:text="${memberStat.odd}" />
+		</tr>
+	</table>
+	<div th:replace="@{/plugins/footer} :: comanyInfo"></div>
+	<div th:include="@{/plugins/footer} :: comanyInfo" th:with="king='海林顿',boy='next♂door'"></div>
+</body>
+</html>

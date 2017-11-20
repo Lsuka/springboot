@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SpringBoot模板渲染</title>
+<link rel="icon" type="image/x-icon" th:href="@{/images/neusoft.ico}" />
+<meta http-equiv="Content-Type" content="text/html;UTF-8" />
+<script type="text/javascript" th:src="@{/js/message/message_show.js}"></script>
+</head>
+<!-- <body> -->
+<!-- 	<p th:text="${#maps.containsKey(memberMap,10L)}"></p> -->
+<!-- 	<p th:text="${memberMap[20L]}"></p> -->
+<!-- 	<hr /> -->
+<!-- 	<div th:object="${member}"> -->
+<!-- 		<p th:text="*{mid}"></p> -->
+<!-- 		<p th:text="*{name}"></p> -->
+<!-- 		<p th:text="*{age}"></p> -->
+<!-- 		<p th:text="*{salary}"></p> -->
+<!-- 		<p th:text="*{deptno}"></p> -->
+<!-- 		<p th:text="*{birthday}"></p> -->
+<!-- 		<p th:text="*{#dates.format(birthday,'yyyy-MM-dd')}"></p> -->
+<!-- 	</div> -->
+<!-- </body> -->
+<hr />
+<table style="width: 80%" border="3">
+	<tr>
+		<td>No.</td>
+		<td>boy</td>
+		<td>next</td>
+		<td>door</td>
+		<td>even</td>
+		<td>odd</td>
+	</tr>
+	<tr th:each="memberEntry,memberStat:${memberMap}"
+		th:class="${memberStat.even ? 'text-danger' : 'text-success'}">
+		<td th:text="${memberStat.index + 1}" />
+		<td th:text="${memberEntry.key}"></td>
+		<td th:text="${#strings.toUpperCase(memberEntry.value.mid)}"></td>
+		<td th:text="${memberEntry.value.name}"></td>
+		<td th:text="${memberEntry.value.salary}"></td>
+		<td th:text="${memberStat.even}" />
+		<td th:text="${memberStat.odd}" />
+	</tr>
+</table>
+</html>
